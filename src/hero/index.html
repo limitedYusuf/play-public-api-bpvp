@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pahlawan</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-900 text-white">
+      <div id="app" class="container mx-auto p-4">
+         <h1 class="text-3xl font-semibold mb-4">Pahlawan</h1>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div v-for="hero in heroes" :key="hero.name" class="bg-gray-800 text-white rounded-lg p-4 shadow-lg">
+               <h2 class="text-lg font-semibold">{{ hero.name }}</h2>
+               <p class="text-gray-300">Tahun Kelahiran: {{ hero.birth_year }}</p>
+               <p class="text-gray-300">Tahun Kematian: {{ hero.death_year }}</p>
+               <p class="text-gray-300">Deskripsi: {{ hero.description }}</p>
+               <p class="text-gray-300">Tahun Kenaikan: {{ hero.ascension_year }}</p>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
