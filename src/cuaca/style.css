@@ -1,0 +1,50 @@
+.clear>#app {
+   background-image: url('awan.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.clouds>#app {
+   background-image: url('cloud.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.rain>#app,
+.drizzle>#app {
+   background-image: url('rain.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.snow>#app {
+   background-image: url('snow.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.mist>#app {
+   background-image: url('mist.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.fog>#app {
+   background-image: url('fog.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.thunderstorm>#app {
+   background-image: url('thunderstorm.gif');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.aqi-info {
+   background-color: rgba(0, 0, 0, 0.7);
+   color: white;
+   padding: 10px;
+   border-radius: 5px;
+   margin-top: 10px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dukun Cuaca</title>
+
+      <link href="../../dist/compiled.css" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+   </head>
+
+   <body>
+      <div id="app" class="min-h-screen flex items-center justify-center bg-gray-100">
+         <div class="w-full max-w-md p-4 mx-auto bg-white shadow-lg rounded-lg">
+            <h1 class="text-2xl mb-4 text-center">Dukun Cuaca</h1>
+            <div class="mb-4">
+               <input v-model="city" type="text" class="w-full p-2 border rounded-lg" placeholder="Masukkan nama kota">
+            </div>
+            <button @click="searchWeather" class="w-full bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
+               Cari Cuaca
+            </button>
+            <div v-if="weatherData" class="mt-6">
+               <h2 class="text-2xl font-semibold text-center">{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+               <p class="text-lg text-center">{{ weatherData.weather[0].description }}</p>
+               <div class="mt-4">
+                  <div class="flex justify-between">
+                     <div class="text-left">
+                        <p class="text-lg">Temperatur:</p>
+                        <p class="text-lg">Suhu Maksimum:</p>
+                        <p class="text-lg">Suhu Minimum:</p>
+                        <p class="text-lg">Kelembaban:</p>
+                        <p class="text-lg">Tekanan:</p>
+                        <p class="text-lg">Kecepatan Angin:</p>
+                     </div>
+                     <div class="text-right">
+                        <p class="text-lg">{{ (weatherData.main.temp).toFixed(2) }}°C</p>
+                        <p class="text-lg">{{ (weatherData.main.temp_max).toFixed(2) }}°C</p>
+                        <p class="text-lg">{{ (weatherData.main.temp_min).toFixed(2) }}°C</p>
+                        <p class="text-lg">{{ weatherData.main.humidity }}%</p>
+                        <p class="text-lg">{{ weatherData.main.pressure }} hPa</p>
+                        <p class="text-lg">{{ weatherData.wind.speed }} m/s</p>
+                     </div>
+                  </div>
+                  <div v-if="airData">
+                     <div class="aqi-info mt-4 animate-pulse flex flex-row justify-between">
+                        <p class="text-xl">Kualitas Udara (AQI):</p>
+                        <p class="text-xl">{{ airData.main.aqi }}</p>
+                     </div>
+                     <div class="aqi-info mt-2 mb-4 animate-pulse flex flex-row justify-between">
+                        <p class="text-xl">Kualitas Udara:</p>
+                        <p class="text-xl">{{ getAirQuality(airData.main.aqi) }}</p>
+                     </div>
+                     <div class="flex justify-between">
+                        <div class="text-left">
+                           <p class="text-lg">CO:</p>
+                           <p class="text-lg">NH3:</p>
+                           <p class="text-lg">NO:</p>
+                           <p class="text-lg">NO2:</p>
+                           <p class="text-lg">O3:</p>
+                           <p class="text-lg">PM2.5:</p>
+                           <p class="text-lg">PM10:</p>
+                           <p class="text-lg">SO2:</p>
+                        </div>
+                        <div class="text-right">
+                           <p class="text-lg">{{ airData.components.co }}</p>
+                           <p class="text-lg">{{ airData.components.nh3 }}</p>
+                           <p class="text-lg">{{ airData.components.no }}</p>
+                           <p class="text-lg">{{ airData.components.no2 }}</p>
+                           <p class="text-lg">{{ airData.components.o3 }}</p>
+                           <p class="text-lg">{{ airData.components.pm2_5 }}</p>
+                           <p class="text-lg">{{ airData.components.pm10 }}</p>
+                           <p class="text-lg">{{ airData.components.so2 }}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
