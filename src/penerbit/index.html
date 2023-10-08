@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Penerbit</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-900 text-white">
+      <div id="app" class="container mx-auto p-4">
+         <h1 class="text-3xl font-semibold mb-4">Penerbit</h1>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div v-for="publisher in publishers" :key="publisher.penerbit"
+               class="bg-gray-800 text-white rounded-lg p-4 shadow-lg">
+               <h2 class="text-lg font-semibold">{{ publisher.penerbit }}</h2>
+               <p class="text-gray-300">Nomor Anggota: {{ publisher.no_anggota }}</p>
+               <p class="text-gray-300">Wilayah: {{ publisher.wilayah }}</p>
+               <p class="text-gray-300">Tahun Masuk: {{ publisher.tahun_masuk }}</p>
+               <p class="text-gray-300">Anggota Luar Biasa: {{ publisher.anggota_luar_biasa }}</p>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
