@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Doxxing Dulu...</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-900 text-white">
+      <div id="app" class="container mx-auto p-4">
+         <h1 class="text-3xl font-semibold mb-4">Doxxing Dulu...</h1>
+         <div class="bg-gray-800 text-white rounded-lg p-4 shadow-lg">
+            <p class="text-lg font-semibold">City: {{ ipAddress.City }}</p>
+            <p class="text-gray-300">Region: {{ ipAddress.Region }}</p>
+            <p class="text-gray-300">Country: {{ ipAddress.Country }}</p>
+            <p class="text-gray-300">Continent: {{ ipAddress.Continent }}</p>
+            <p class="text-gray-300">Coordinates: {{ ipAddress.Coordinates }}</p>
+            <p class="text-gray-300">Time: {{ ipAddress.Time }}</p>
+            <p class="text-gray-300">IP Address: {{ ipAddress.ipAddress }}</p>
+            <p class="text-gray-300">Hostname: {{ ipAddress.hostname }}</p>
+            <p class="text-gray-300">Provider: {{ ipAddress.provider }}</p>
+            <p class="text-gray-300">ASN: {{ ipAddress.ASN }}</p>
+            <p class="text-gray-300">Latitude: {{ ipAddress.lat }}</p>
+            <p class="text-gray-300">Longitude: {{ ipAddress.lon }}</p>
+            <p class="text-gray-300">Country Info:</p>
+            <ul>
+               <li>Name: {{ ipAddress.CountryInfo.name }}</li>
+               <li>Dial Code: {{ ipAddress.CountryInfo.dial_code }}</li>
+               <li>Emoji: {{ ipAddress.CountryInfo.emoji }}</li>
+               <li>Code: {{ ipAddress.CountryInfo.code }}</li>
+               <li>Country: {{ ipAddress.CountryInfo.country }}</li>
+               <li>Population: {{ ipAddress.CountryInfo.population }}</li>
+            </ul>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
