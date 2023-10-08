@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BMKG</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-100">
+      <div id="app" class="p-4">
+         <div class="container mx-auto">
+            <h1 class="text-2xl font-semibold text-center mb-4">BMKG</h1>
+            <div v-if="!selectedLocationId" class="mb-4">
+               <div class="flex flex-wrap gap-2 justify-center">
+                  <button v-for="provinsi in uniqueProvinces" @click="filterByProvinsi(provinsi)" :key="provinsi"
+                     class="w-50 bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+                     {{ formatProvinsi(provinsi) }}
+                  </button>
+               </div>
+            </div>
+            <div v-if="selectedLocationId">
+               <div class="text-center mb-4">
+                  <button @click="selectedLocationId = null"
+                     class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 weather-button">
+                     Kembali
+                  </button>
+               </div>
+               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div v-for="(data, index) in weatherData" :key="index" class="bg-white rounded-lg shadow-md p-4">
+                     <p class="text-gray-600 font-semibold">Tanggal: {{ data.jamCuaca }}</p>
+                     <p class="text-gray-600">Cuaca: {{ data.cuaca }}</p>
+                     <p class="text-gray-600">Suhu: {{ data.tempC }}°C</p>
+                     <p class="text-gray-600">Kelembaban: {{ data.humidity }}%</p>
+                  </div>
+               </div>
+            </div>
+            <div v-else>
+               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div v-for="location in filteredLocations" :key="location.id"
+                     class="cursor-pointer bg-white rounded-lg shadow-md p-4" @click="showWeather(location.id)">
+                     <h2 class="text-lg font-semibold">{{ formatProvinsi(location.propinsi) }}</h2>
+                     <p class="text-gray-600">{{ location.kota }}</p>
+                     <p class="text-gray-600">{{ location.kecamatan }}</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
