@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>OJK</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-100">
+      <div id="app" class="container mx-auto mt-8">
+         <div class="flex justify-center space-x-4">
+            <button @click="showTab('app')"
+               :class="{ 'bg-blue-500': activeTab === 'app', 'bg-gray-300': activeTab !== 'app' }"
+               class="px-4 py-2 rounded-lg text-white">Resmi OJK</button>
+            <button @click="showTab('illegal')"
+               :class="{ 'bg-blue-500': activeTab === 'illegal', 'bg-gray-300': activeTab !== 'illegal' }"
+               class="px-4 py-2 rounded-lg text-white">Illegal</button>
+            <button @click="showTab('product')"
+               :class="{ 'bg-blue-500': activeTab === 'product', 'bg-gray-300': activeTab !== 'product' }"
+               class="px-4 py-2 rounded-lg text-white">Product</button>
+         </div>
+
+         <div class="mt-4">
+            <div v-if="activeTab === 'app'" class="grid grid-cols-3 gap-4" id="appTab">
+               <div v-if="isLoadingApp" v-for="i in 6" :key="i" class="card p-4 bg-white rounded shadow animate-pulse">
+                  <div class="h-4 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+               </div>
+            </div>
+
+            <div v-if="activeTab === 'illegal'" class="grid grid-cols-3 gap-4" id="illegalTab">
+               <div v-if="isLoadingIllegal" v-for="i in 6" :key="i"
+                  class="card p-4 bg-white rounded shadow animate-pulse">
+                  <div class="h-4 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+               </div>
+            </div>
+
+            <div v-if="activeTab === 'product'" class="grid grid-cols-3 gap-4" id="productTab">
+               <div v-if="isLoadingProduct" v-for="i in 6" :key="i"
+                  class="card p-4 bg-white rounded shadow animate-pulse">
+                  <div class="h-4 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+                  <div class="h-4 mt-2 bg-gray-300 rounded"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
