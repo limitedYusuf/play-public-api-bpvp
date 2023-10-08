@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Quotes</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">      
+   </head>
+
+   <body class="bg-gray-900 text-white">
+      <div id="app" class="container mx-auto p-4">
+         <h1 class="text-3xl font-semibold mb-4">Quotes</h1>
+
+         <div class="mb-4">
+            <label for="animeSelect" class="block text-sm font-medium text-gray-400 mb-2">Select Anime</label>
+            <select id="animeSelect" v-model="selectedAnime"
+               class="form-select w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+               @change="fetchQuotesByAnime">
+               <option value="" disabled>Cari berdasarkan anime</option>
+               <option v-for="anime in animeList" :key="anime.anime" :value="anime.anime">{{ anime.anime }}</option>
+            </select>
+         </div>
+
+         <div v-for="quote in quotes" :key="quote.id" class="mb-4">
+            <div class="bg-gray-800 p-4 rounded-lg shadow-lg transition-transform hover:scale-105 w-full">
+               <p class="text-lg font-bold">"{{ quote.indo }}"</p>
+               <p class="text-md mt-2">{{ quote.character }} - {{ quote.anime }}</p>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
