@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cek Cuti</title>
+      <link href="../../dist/compiled.css" rel="stylesheet">
+   </head>
+
+   <body class="bg-gray-900 text-white">
+      <div id="app" class="container mx-auto p-4">
+         <h1 class="text-3xl font-semibold mb-4">Cek Cuti</h1>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div v-for="holiday in holidays" :key="holiday.tanggal"
+               class="bg-gray-800 text-white rounded-lg p-4 shadow-lg">
+               <h2 class="text-lg font-semibold">{{ holiday.keterangan }}</h2>
+               <p class="text-gray-300">Tanggal: {{ holiday.tanggal }}</p>
+               <p class="text-gray-300">Apakah libur?: {{ holiday.is_cuti ? 'Ya' : 'Tidak' }}</p>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+      <script src="app.js"></script>
+   </body>
+
+</html>
